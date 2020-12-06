@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>digtal clk</title>
+	<style type="text/css">
+
+
+		body{
+			background: #000;
+		}
+		.clock{
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform: translateX(-50%) translateY(-50%);
+			color: white;
+			font-size: 80px;
+			border: 1px solid #ccc;
+			padding-bottom: 0px 5px 0px 5px;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="MyClockDisplay" class="clock">
+
+	<script type="text/javascript">
+
+		function showTime(){
+		var date = new Date();//date obj is created 0-23
+		var h= date.getHours();//0-23
+		var m= date.getMinutes();//0-59
+		var s= date.getSeconds();//0-59
+		var session ="AM";
+
+
+		if(h == 0){
+			h=12;
+		}
+		if(h>12){
+			h = h-12;
+			session ="PM";
+		}
+		if(h<10){
+			h= "0" + h;
+		}
+		if(m<10){
+			m="0" +m;
+
+		}
+		if(s<10){
+			s ="0" + s;
+		}
+		var time = h + ":" + m + ":" + s+" "+ session;
+		document.getElementById("MyClockDisplay").innerText = time;
+		//just fetch he time 
+		document.getElementById("MyClockDisplay").textContent = time;
+
+		setTimeout(showTime,1000);// immediate disay ofdata
+		}
+
+		showTime();
+	</script>
+	</div>
+</body>
+</html>
